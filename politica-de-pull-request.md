@@ -13,7 +13,7 @@
 * **Critérios de Validação:** O código proposto deve superar a análise estática (`ruff`), a compilação de sintaxe (`compileall`) e a suíte de testes unitários (`pytest`). Como estabelecido por **FOWLER (2006)** em seu artigo seminal, uma das bases da Integração Contínua é que todo artefato seja validado por um *build* auto-testável. Automatizar essas etapas elimina o trabalho braçal (*toil*), uma premissa defendida na abordagem de *Site Reliability Engineering* (**SRE / O'REILLY, 2016**), garantindo um *feedback* rápido sem depender de intervenções manuais.
 
 ## 4. Critérios Finais de Aprovação e Merge
-Para que a submissão seja considerada apta e o código seja incorporado à base de produção (conforme os modelos práticos do **Material dos Módulos**), o seguinte *checklist* deve ser cumprido:
+Para que a submissão seja considerada apta e o código seja incorporado à base de produção (conforme os modelos práticos dos **Material dos Módulos**), o seguinte *checklist* deve ser cumprido:
 
 **Pipeline Verde:** Testes e *linting* aprovados integralmente pela automação do GitHub Actions.
 **Revisão Humana:** Aprovação formal (via plataforma) por um colega revisor.
