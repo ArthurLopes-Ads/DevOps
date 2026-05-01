@@ -23,3 +23,6 @@ O pipeline é disparado em `push` e `pull_request` na branch `main` e garante fe
 - Build com `python -m compileall src`
 - Testes com `pytest`
 - Publicação de artefato opcional com `actions/upload-artifact@v4`
+
+➡️ [Próxima página: Estratégia de Versionamento](estrategia-de-versionamento.md)
+➡️ [Próxima página: Políticas de Pull Request (PR)](política-de-pull-request.md)
