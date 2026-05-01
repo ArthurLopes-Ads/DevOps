@@ -1,4 +1,4 @@
-# Estratégia de Versionamento e Fluxo de Trabalho Integrado
+# Estratégia de Versionamento
 
 ## 1. Estratégia de Branching (GitHub Flow)
 
