@@ -1,3 +1,5 @@
+## Estratégia de Versionamento e Fluxo de Trabalho
+
 ## 1. Estratégia de Branching (GitHub Flow)
 Baseando-se nas diretrizes de versionamento abordadas no **Material do Módulo (Bloco 1)**, adotamos o GitHub Flow para garantir um ciclo de entregas contínuo e focado na estabilidade do middleware.
 
