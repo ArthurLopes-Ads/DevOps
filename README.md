@@ -1,4 +1,4 @@
- ## IntegraVendas
+## IntegraVendas
 
 A **InteraVendas** desenvolve middleware focado em varejo. Nosso principal produto é uma aplicação que roda em segundo plano sincronizando, de hora em hora, o estoque de sistemas internos de lojas físicas com E-commerce atráves de API.
 
@@ -6,7 +6,7 @@ A **InteraVendas** desenvolve middleware focado em varejo. Nosso principal produ
 
 | Problema                                                          | Descrição                                                                                                                                                                                   |
 | ----------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Branches longas**                                             | Eles desenvolvem em branches separadas por semanas.                                                                                                                                         |
+| **Branches longas**                                               | Eles desenvolvem em branches separadas por semanas.                                                                                                                                         |
 | **Integração tardia e alto impacto financeiro (Falta de Testes)** | Não há um pipeline de Integração Contínua (CI). Como não existem testes automatizados validando a transformação dos dados a cada commit, erros de conversão só são descobertos em produção. |
 | **Deploy manual e indisponibilidade (Toil)**                      | A atualização do sistema é um processo manual e doloroso.                                                                                                                                   |
 
