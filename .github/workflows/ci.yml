@@ -1,52 +1,53 @@
-name: CI
+name: CI  # Nome da nossa automação (Integração Contínua)
 
-on:
+on:  # Define os gatilhos (quando o robô acorda)
   push:
-    branches: [main, master]
+    branches: [main, master]  
   pull_request:
-    branches: [main, master]
+    branches: [main, master]  
   issue_comment:
-    types: [created]
+    types: [created] 
 
 env:
-  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true  # Garante que as ferramentas internas usem uma versão estável do Node
 
 jobs:
-  ci:
-    runs-on: ubuntu-latest
+  ci:  # Nome do nosso trabalho de verificação
+    runs-on: ubuntu-latest  # Aluga uma máquina virtual com Linux Ubuntu zerada na nuvem
     defaults:
       run:
-        working-directory: ./
+        working-directory: ./  # Define que os comandos devem rodar na pasta raiz do projeto
 
-    steps:
-      - uses: actions/checkout@v4
+    steps:  # A lista de tarefas que o robô vai fazer em sequência
+      - uses: actions/checkout@v4  # Passo 1: Baixa o código do seu GitHub para dentro da máquina virtual
 
-      - name: Setup Python
+      - name: Setup Python  # Passo 2: Prepara o ambiente Python
         uses: actions/setup-python@v5
         with:
-          python-version: "3.13"
-          cache: "pip"
+          python-version: "3.13"  # Instala a versão 3.13 do Python
+          cache: "pip"  # Salva as bibliotecas baixadas para ser mais rápido nas próximas vezes
 
-      - name: Install dependencies
+      - name: Install dependencies  # Passo 3: Instala as ferramentas necessárias
         run: |
-          python -m pip install --upgrade pip
-          pip install ruff pytest
+          python -m pip install --upgrade pip  # Atualiza o gerenciador de pacotes (pip)
+          pip install ruff pytest  # Instala o Ruff (corretor) e o Pytest (testador)
+          # Se existir um arquivo requirements.txt, ele instala o que estiver lá dentro
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
-      - name: Lint
-        run: ruff check .
+      - name: Lint  # Passo 4: Faxina do código
+        run: ruff check .  # O Ruff varre o código atrás de erros de escrita ou sujeira
 
-      - name: Build
-        run: python -m compileall .
+      - name: Build  # Passo 5: Verificação de "ignição"
+        run: python -m compileall .  # Tenta compilar os arquivos para ver se a sintaxe está correta
 
-      - name: Test
-        run: pytest
+      - name: Test  # Passo 6: Validação das regras de negócio
+        run: pytest  # Executa os testes do arquivo test_sync.py (ex: cálculo de estoque)
 
-      - name: Publish artifact
-        if: always()
+      - name: Publish artifact  # Passo 7: Empacotamento final
+        if: always()  # Faz isso mesmo se os testes derem erro (ajuda a debugar)
         uses: actions/upload-artifact@v4
         with:
-          name: integra-vendas-source
+          name: integra-vendas-source  # Nome do arquivo .zip que será gerado
           path: |
             ./
-            ! .git/
+            ! .git/  # Copia tudo, menos a pasta oculta do Git para o pacote ficar leve
